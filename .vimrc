@@ -1,5 +1,20 @@
 set nocompatible
+set updatetime=100
+set clipboard=unnamed
+set relativenumber
+set number
+set autoindent 
+set smartindent 
+set autoread
+set ignorecase " case-insenstivie search"
+set smartcase " case senstivie search if contains capital letter"
+set hlsearch
+set incsearch " set incremental search"
+set showmatch "show matching braces "
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
+syntax on
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -39,6 +54,9 @@ Plugin 'jez/vim-ispc'
 Plugin 'kchmck/vim-coffee-script'
 
 " ---- Extras/Advanced plugins ----------------------------------------
+" comment/uncomment lines with gcc or gc in visual mode
+Plugin 'tpope/vim-commentary' 
+
 " Highlight and strip trailing whitespace
 "Plugin 'ntpeters/vim-better-whitespace'
 " Easily surround chunks of text
@@ -103,12 +121,13 @@ let g:airline_detect_paste=1
 let g:airline#extensions#tabline#enabled = 1
 
 " Use the solarized theme for the Airline status bar
-let g:airline_theme='solarized'
+let g:airline_theme='dark'
 
 " ----- jistr/vim-nerdtree-tabs -----
 " Open/close NERDTree Tabs with \t
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
-" To have NERDTree always open on startup
+let NERDTreDTreeChDirMode = 2
+let g:ctrlp_working_path_mode = 'rw'
 let g:nerdtree_tabs_open_on_console_startup = 1
 
 
@@ -141,6 +160,7 @@ nmap <silent> <leader>b :TagbarToggle<CR>
 " ----- airblade/vim-gitgutter settings -----
 " In vim-airline, only display "hunks" if the diff is non-zero
 let g:airline#extensions#hunks#non_zero_only = 1
+let g:gitgutter_enabled = 1
 
 
 " ----- Raimondi/delimitMate settings -----
